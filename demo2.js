@@ -28,7 +28,7 @@ function buyPizza(){
         type:Buy_pizza
     }
 }
-const cakerReducer =(state=cakeIntialState,action)=>
+const cakeReducer =(state=cakeInitialState,action)=>
 {
     switch(action.type){
         case Buy_cake:
@@ -42,8 +42,9 @@ const cakerReducer =(state=cakeIntialState,action)=>
             {
                 return state
             }
+        }
 }
-const cakerReducer =(state=cakeIntialState,action)=>
+const pizzaReducer =(state=pizzaIntialState,action)=>
             {
                 switch(action.type){                
         case Buy_pizza:
@@ -53,8 +54,16 @@ const cakerReducer =(state=cakeIntialState,action)=>
                     noOfpizza:state.noOfpizza-1
                 }
             }    
+        default:
+            {
+                return state
+            }
     }
 }
+const rootReducer = redux.combineReducers({
+    cakes: cakeReducer,
+    pizza:pizzaReducer
+})
 
 const store =createStore(rootReducer,applyMiddleware(logger))
 console.log('InitialState:',store.getState())
@@ -68,4 +77,4 @@ store.dispatch(buyPizza())
 store.dispatch(buyPizza())
 
 
-}
+
