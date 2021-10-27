@@ -37,3 +37,4 @@ console.log('initialState:',store.getState())
 store.subscribe(()=>{})
 
 store.dispatch(buyTicket(5))
+store.dispatch(buyTicket(10))
