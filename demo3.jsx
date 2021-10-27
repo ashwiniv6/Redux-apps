@@ -20,7 +20,7 @@ function buyTicket(count){
 }
 
 const ticketReducer=(state=intialState,action)=>{
-    switch(action,type){
+    switch(action.type){
         case BUY_TICKET:
             return{
                 ...state,
